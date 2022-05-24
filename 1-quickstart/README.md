@@ -112,7 +112,9 @@ The automation is delivered in a number of layers that are applied in order. Lay
       - **PREFIX_NAME** - the name prefix that should be added to all the resources. If not provided a prefix will not be added.
     ```
 6. Change the directory to the current workspace where the automation was configured (e.g. `/workspaces/current`).
-7. Inspect **terraform.tfvars** to see if there are any variables that should be changed. (The **setup-workspace.sh** script has generated **terraform.tfvars** with default values and can be used without updates, if desired.)
+7. Inspect **terraform.tfvars** to see if there are any variables that should be changed. (The **setup-workspace.sh** script has generated **terraform.tfvars** with default values. At a minimum, modify the ***base_domain_name*** and ***resource_group_name*** values to suit the Azure DNS zone configured in the prerequisite steps)
+    - **base_domain_name** - the full subdomain delegated to Azure in the DNS zone (for example ocp.azure.example.com)
+    - **resource_group_name** - the Azure resource group where the DNS zone has been defined
 
     **Note:** A soft link has been created to the **terraform.tfvars** in each of the terraform subdirectories so the configuration is shared between all of them. 
 
@@ -128,7 +130,7 @@ The script will run through each of the terraform layers in sequence to provisio
 
 #### Run all the terraform layers manually
 
-From the **/workspace/current** directory, run change directory into each of the layer subdirectories and run the following:
+From the **/workspace/current** directory, change directory into each of the layer subdirectories and run the following:
 
 ```shell
 terraform init

@@ -30,10 +30,11 @@ TBD
 
 ### Prerequisites
 
-1. Have access to an IBM Cloud Account. An Enterprise account is best for workload isolation but this terraform can be run in a Pay Go account as well.
+1. Have access to an Azure subscription with "Owner" and "User Access Administrator" roles. An Enterprise account is best for workload isolation but this terraform can be run in a Pay Go account as well.
 
 2. (Optional) Install and start Colima to run the terraform tools in a local bootstrapped container image.
 
+    On Mac with brew:
     ```shell
     brew install docker colima
     colima start
@@ -74,7 +75,7 @@ TBD
       - **PREFIX_NAME** - the name prefix that should be added to all the resources. If not provided a prefix will not be added and the cluster will be named `quickstart`.
     ```
 6. Change the directory to the current workspace where the automation was configured (e.g. `/workspaces/current`).
-7. Inspect **terraform.tfvars** to see if there are any variables that should be changed. (The **setup-workspace.sh** script has generated **terraform.tfvars** with default values and can be used without updates, if desired.)
+7. Inspect **terraform.tfvars** to see if there are any variables that should be changed. (The **setup-workspace.sh** script has generated **terraform.tfvars** with default values. At a minimum, modify the ***base_domain_name*** and ***resource_group_name*** values to suit the Azure DNS zone configured in the prerequisite steps)
 
     **Note:** A soft link has been created to the **terraform.tfvars** in each of the terraform subdirectories so the configuration is shared between all of them. 
 
