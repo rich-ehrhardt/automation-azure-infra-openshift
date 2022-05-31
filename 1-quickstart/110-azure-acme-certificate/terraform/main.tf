@@ -1,3 +1,6 @@
+locals {
+  acme_api_endpoint = var.testing == "github" ? var.staging_api_endpoint : var.acme_api_endpoint
+}
 
 module "api-certificate" {
   source = "github.com/cloud-native-toolkit/terraform-azure-acme-certificate?ref=v1.0.0"
@@ -7,7 +10,7 @@ module "api-certificate" {
 
   acme_registration_email = var.acme_registration_email
 
-  acme_api_endpoint = var.acme_api_endpoint
+  acme_api_endpoint = local.acme_api_endpoint
 
   resource_group_name = var.resource_group_name
   client_id = var.client_id
@@ -25,7 +28,7 @@ module "apps-certificate" {
 
   acme_registration_email = var.acme_registration_email
 
-  acme_api_endpoint = var.acme_api_endpoint
+  acme_api_endpoint = local.acme_api_endpoint
 
   resource_group_name = var.resource_group_name
   client_id = var.client_id

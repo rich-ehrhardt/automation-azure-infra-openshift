@@ -47,8 +47,20 @@ variable "config_file_path" {
   type = string
 }
 
-
 variable "acme_api_endpoint" {
   default     = "https://acme-v02.api.letsencrypt.org/directory"
   description = "ACME API endpoint, defaults to letsencrypt prod directory."
+  type = string
+}
+
+variable "staging_api_endpoint" {
+  default = "https://acme-staging-v02.api.letsencrypt.org/directory"
+  description = "Staging Acme API endpoint (used for testing)"
+  type = string
+}
+
+variable "testing" {
+  type = bool
+  default = false
+  description = "Flag used during automated code pull and merge testing"
 }
