@@ -36,4 +36,3 @@ else
   echo ""
   echo "Nothing to destroy!!"
 fi
-

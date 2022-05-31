@@ -7,8 +7,6 @@ module "api-certificate" {
 
   acme_registration_email = var.acme_registration_email
 
-  acme_api_endpoint = var.acme_api_endpoint
-
   resource_group_name = var.resource_group_name
   client_id = var.client_id
   client_secret = var.client_secret
@@ -25,8 +23,6 @@ module "apps-certificate" {
 
   acme_registration_email = var.acme_registration_email
 
-  acme_api_endpoint = var.acme_api_endpoint
-
   resource_group_name = var.resource_group_name
   client_id = var.client_id
   client_secret = var.client_secret
@@ -35,7 +31,7 @@ module "apps-certificate" {
 }
 
 module "api-certs" {
-  source = "github.com/cloud-native-toolkit/terraform-any-ocp-ipi-certs?ref=v1.0.1"
+  source = "github.com/cloud-native-toolkit/terraform-any-ocp-ipi-certs?ref=v1.0.0"
 
   apps_cert         = module.apps-certificate.cert
   apps_key          = module.apps-certificate.key

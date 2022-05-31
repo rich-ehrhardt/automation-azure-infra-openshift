@@ -75,7 +75,7 @@ TBD
       - **PREFIX_NAME** - the name prefix that should be added to all the resources. If not provided a prefix will not be added and the cluster will be named `quickstart`.
     ```
 6. Change the directory to the current workspace where the automation was configured (e.g. `/workspaces/current`).
-7. Inspect **terraform.tfvars** to see if there are any variables that should be changed. (The **setup-workspace.sh** script has generated **terraform.tfvars** with default values. At a minimum, modify the ***base_domain_name*** and ***resource_group_name*** values to suit the Azure DNS zone configured in the prerequisite steps)
+7. Inspect **terraform.tfvars** to see if there are any variables that should be changed. (The **setup-workspace.sh** script has generated **terraform.tfvars** with default values. At a minimum, modify the ***base_domain_name*** and ***resource_group_name*** values to suit the Azure DNS zone configured in the prerequisite steps. Also, if you plan on using the OpenShift console, uncomment the ***acme_api_endpoint*** production value and comment out the staging endpoint.)
 
     **Note:** A soft link has been created to the **terraform.tfvars** in each of the terraform subdirectories so the configuration is shared between all of them. 
 

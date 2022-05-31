@@ -2,13 +2,25 @@
 cluster_name="PREFIXquickstart"
 
 ## Resource group name containing the base domain name
-resource_group_name=""
+resource_group_name="ocp-domain"
 
 ## Base domain name (e.g. myclusters.mydomain.com)
-base_domain_name=""
+base_domain_name="ocp-azure.ibm-software-everywhere.dev"
 
 ## Azure region into which to deploy
 region="REGION"
 
 ## OpenShift version to install
 openshift_version="4.10.11"
+
+## The number of worker nodes to create
+worker_node_qty=3
+
+## The type of worker nodes to create
+worker_node_type="Standard_D4s_v3"
+
+## The Acme API endpoint to be used to generate the certificate
+# This endpoint is used to test the certificate generate and is the default for github testing. 
+acme_api_endpoint="https://acme-staging-v02.api.letsencrypt.org/directory"
+# Use this one for production deployments
+#acme_api_endpoint="https://acme-v02.api.letsencrypt.org/directory"
